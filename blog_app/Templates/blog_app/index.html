@@ -1,0 +1,102 @@
+{% extends 'blog_app/base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'blog_app/css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="banner_1">
+    {% for banner in banner1 %}
+    <div class="banner_1--Slides fade">
+        <img src="{{banner.banner.url}}">
+        <div class="content--info">
+            <span class="content--category">{{banner.category.name}}</span>
+            <a href="{% url 'blog' id=banner.id %}" class="content--heading">{{banner.name}}</a>
+            <div class="content-date-desc">
+                <span class="content-date">{{banner.date}}</span>
+                <span class="long-dash banner_1--dash"></span>
+                <p class="content-description">
+                    {{banner.short_desc|truncatechars:200}}
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="banner_1-slidepos">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+</div>
+
+<div class="popular_topics">
+    <h1>Popular topics</h1>
+    <div class="popular_topics--cat">
+        <div class="p_t--categories">
+            <span class="popcat focus_element" onclick="allPop(this);">All</span>
+            {% for popular_topics_category in popular_topics_categories %}
+            <span class="popcat" onclick="getBlogs(this,'{{popular_topics_category}}','POTO69');">{{popular_topics_category.name|lower|capfirst}}</span>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="populat_topics--rapper" id="p_t_r">
+        {% for popular_topic in popular_topics %}
+        <div class="article_card" id="{{ forloop.counter }}">
+            <span class="article_card--category">{{popular_topic.category.name}}</span>
+            <div class="article_card--image">
+                <img src="{{popular_topic.cover_image.url}}" alt="">
+            </div>
+            <span class="article_card--date">{{popular_topic.date}}</span>
+            <a href="{% url 'blog' id=popular_topic.id %}" class="article_card--topic">{{popular_topic.name}}</a>
+            <p class="article_card--description">
+                {{popular_topic.short_desc|truncatechars:100}}
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="banner_2">
+    <img src="{{banner2.banner.url}}" alt="">
+    <div class="banner_2--info">
+        <span class="content--category">{{banner2.category.name}}</span>
+        <h2 class="banner_2--heading">{{banner2.name}}</h2>
+        <p class="banner_2--description">{{banner2.short_desc|truncatechars:200}}</p>
+        <span class="long-dash banner_2--dash"></span>
+        <span class="banner_2--date">{{banner2.date}}</span>
+    </div>
+</div>
+
+<div class="subscribe">
+    <span class="subscribe--heading">Subscribe to our blog newsletter</span>
+    <span class="subs--info">Information, tips and advice delivered direct to your inbox.</span>
+    <div class="email--input">
+        <input type="email" id="email" placeholder="drop your email here">
+        <button onclick="subscribe();">SUBSCRIBE</button>
+    </div>
+
+</div>
+
+<div class="editors_pic">
+    <h1 class="editor_pic--heading">Editor's Pick</h1>
+    <div class="editors_pic--rapper">
+        {% for editor_pick in editor_picks %}
+        <div class="editors_pic--card" id="card--{{ forloop.counter }}">
+            <img src="{{editor_pick.cover_image.url}}" alt="">
+            <span class="editors_pic--card--category">{{editor_pick.category.name}}</span>
+            <div class="editors_pic--card--info">
+                <span>{{editor_pick.date}}</span>
+                <a href="{% url 'blog' id=editor_pick.id %}">{{editor_pick.name}}</a>
+                <p>{{editor_pick.short_desc|truncatechars:130}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div id="message--area"></div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'blog_app/js/index.js' %}"></script>
+{% endblock %}

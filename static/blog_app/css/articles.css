@@ -1,0 +1,247 @@
+.nav--banner--image{
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: -50px;
+}
+
+.nav--banner--image img{
+    width: 100%;
+    height: 99%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.banner--image--shade{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0) , rgb(255, 255, 255));
+}
+
+.categories{
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+}
+
+.categories-heading{
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--heading);
+}
+
+.category--wrapper{
+    width: 100%;
+    height: auto;
+    margin: 60px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.category{
+    width: 32%;
+    height: auto;
+    aspect-ratio: 2/1;
+    margin-bottom: 23px;
+    border-radius: 8px;
+    position: relative;
+    text-decoration: none;
+    background-color: rgb(62, 62, 62);
+    overflow: hidden;
+}
+
+.category img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+.category h3{
+    width: fit-content;
+    white-space: nowrap;
+    top: 50%;
+    left: 50%;
+    font-size: 24px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    font-family: 'Noto Sans', sans-serif;
+    color: white;
+}
+
+.popular_topics{
+    width: 80%;
+    height: auto;
+    margin: 80px auto;
+}
+
+.popular_topics h1{
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--heading);
+}
+
+.popular_topics--cat{
+    width: 100%;
+    height: auto;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.p_t--categories{
+    width: auto;
+    height: fit-content;
+}
+
+.p_t--categories span{
+    width: fit-content;
+    height: fit-content;
+    margin-right: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--heading);
+}
+
+.populat_topics--rapper{
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.article_card{
+    width: 24%;
+    margin: 0 0.5%;
+    height: fit-content;
+    margin-bottom: 35px;
+    overflow: hidden;
+    position: relative;
+}
+
+.article_card--category{
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    top: 4%;
+    right: 5%;
+    color: white;
+    font-size: 11px;
+    font-family: 'Noto Sans', sans-serif;
+    padding: 3px 5px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.article_card--image{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 10/9;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.article_card--image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.article_card--date{
+    margin-top: 18px;
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--smltxt);
+}
+
+.article_card--topic{
+    margin-top: 15px;
+    display: block;
+    color: var(--smlheading);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 17.5px;
+}
+
+.article_card--topic:hover{
+    text-decoration: underline;
+}
+
+.article_card--description{
+    margin-top: 15px;
+    font-size: 14px;
+    color: var(--smltxt);
+}
+
+@media(max-width:1100px){
+    .categories{
+        width: 90%;
+    }
+    .popular_topics{
+        width: 90%;
+    }
+
+    .article_card {
+        width: 32%;
+        margin: 0 0.61%;
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width:950px){
+    .category{
+        width: 48%;
+    }
+
+    .category h3{
+        font-size: 22px;
+    }
+}
+
+@media(max-width:650px){
+
+    .nav--banner--image{
+        height: 200px;
+    }
+
+
+    .categories-heading{
+        font-size: 30px;
+    }
+
+    .category{
+        width: 98%;
+    }
+
+    .category h3{
+        font-size: 19px;
+    }
+
+    .category--wrapper{
+        margin-top: 30px;
+    }
+
+    .popular_topics h1{
+        font-size: 28px;
+    }
+
+    .article_card {
+        width: 48%;
+        margin: 0 1%;
+        margin-bottom: 25px;
+    }
+
+    .article_card--topic{
+        font-size: 16px;
+    }
+}

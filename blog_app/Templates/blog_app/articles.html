@@ -1,0 +1,54 @@
+{% extends 'blog_app/base.html' %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'blog_app/css/articles.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="nav--banner--image">
+        <img src="{% static 'images/site_static_image/joel-vodell-TApAkERW5pQ-unsplash.jpg' %}" alt="">
+        <div class="banner--image--shade"></div>
+    </div>
+    <div class="categories">
+        <h2 class="categories-heading">Categories</h2>
+        <div class="category--wrapper">
+            {% for category in categories %}
+            <a href="{% url 'search' %}?q={{ category.name }}" class="category">
+                <img src="{{category.image.url}}" alt="">
+                <h3>{{category.name}}</h3>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="popular_topics">
+        <h1>Recently Uploaded</h1>
+        <div class="popular_topics--cat">
+            <div class="p_t--categories">
+                <span class="popcat focus_element" onclick="allPop(this);">All</span>
+                {% for popular_topics_category in popular_topics_categories %}
+                <span class="popcat" onclick="getBlogs(this,'{{popular_topics_category}}','RECENT');">{{popular_topics_category.name|lower|capfirst}}</span>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="populat_topics--rapper" id="p_t_r">
+            {% for recent_blog in recent_blogs %}
+            <div class="article_card" id="{{ forloop.counter }}">
+                <span class="article_card--category">{{recent_blog.category.name}}</span>
+                <div class="article_card--image">
+                    <img src="{{recent_blog.cover_image.url}}" alt="">
+                </div>
+                <span class="article_card--date">{{recent_blog.date}}</span>
+                <a href="{% url 'blog' id=recent_blog.id %}" class="article_card--topic">{{recent_blog.name}}</a>
+                <p class="article_card--description">
+                    {{recent_blog.short_desc|truncatechars:110}}
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'blog_app/js/article.js' %}"></script>
+{% endblock %}

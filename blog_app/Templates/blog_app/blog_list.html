@@ -1,0 +1,75 @@
+{% extends 'blog_app/base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'blog_app/css/blog_list.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="nav--banner--image">
+    <img src="{% static 'images/site_static_image/joel-vodell-TApAkERW5pQ-unsplash.jpg' %}" alt="">
+    <div class="banner--image--shade"></div>
+</div>
+
+<div class="search_result">
+    <div class="search_result--heading">
+        <h2>Showing results for : "{{q}}"</h2>
+    </div>
+    {% if blog_objs %}
+    <div class="search_result--rapper">
+        {% for blog_obj in blog_objs %}
+        <div class="article_card" id="{{ forloop.counter }}">
+            <span class="article_card--category">{{blog_obj.category.name}}</span>
+            <div class="article_card--image">
+                <img src="{{blog_obj.cover_image.url}}" alt="">
+            </div>
+            <span class="article_card--date">{{blog_obj.date}}</span>
+            <a href="{% url 'blog' id=blog_obj.id %}" class="article_card--topic">{{blog_obj.name}}</a>
+            <p class="article_card--description">
+                {{blog_obj.short_desc|truncatechars:120}}
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="pagination">
+
+        <ul class="step-links">
+
+            {% if blog_objs.has_previous %}
+            <li><a href="?q={{q}}&page={{ blog_objs.previous_page_number }}">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M10.828 12l4.95 4.95-1.414 1.414L8 12l6.364-6.364 1.414 1.414z" fill="rgba(255,255,255,1)"/></svg>
+            </a></li>
+            {% endif %}
+
+            {% if blog_objs.number|add:'-4' > 1 %}
+            <li><a href="?q={{q}}&page={{ blog_objs.number|add:'-5' }}">&hellip;</a></li>
+            {% endif %}
+
+            {% for i in blog_objs.paginator.page_range %}
+            {% if blog_objs.number == i %}
+            <li class="active--page"><span>{{ i }}</span></li>
+            {% elif i > blog_objs.number|add:'-5' and i < blog_objs.number|add:'5' %}
+            <li><a href="?q={{q}}&page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+            {% endfor %}
+
+            {% if blog_objs.paginator.num_pages > blog_objs.number|add:'4' %}
+            <li><a href="?page=q={{q}}&{{ blog_objs.number|add:'5' }}">&hellip;</a></li>
+            {% endif %}
+
+            {% if blog_objs.has_next %}
+            <li><a href="?q={{q}}&page={{ blog_objs.next_page_number }}">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z" fill="rgba(255,255,255,1)"/></svg>
+            </a></li>
+            {% endif %}
+
+        </ul>
+    </div>
+    {% else %}
+    <div class="search_result--rapper">
+        <span class="no-result">Sorry, no result found.</span>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}
