@@ -25,9 +25,12 @@ def home(request):
         except:
             print('email already exist')
             return JsonResponse(data={'status':'E_Email'})
+        
     banners = Blog.objects.order_by('?')[:4]
-    banner1 = banners[:3]
-    banner2 = banners[3]
+    if banners:
+        banner1 = banners[:3]
+        banner2 = banners[3]
+
     popular_topics_categories = Category.objects.order_by('?')[:5]
     popular_topics = Blog.objects.order_by('-visitors')[:8]
     editor_picks = Blog.objects.filter(eidtors_pick = True).order_by('?')[:3]

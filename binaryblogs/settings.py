@@ -37,9 +37,9 @@ EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['https://43.204.238.126/','localhost']
+ALLOWED_HOSTS = ['https://43.204.238.126/','127.0.0.1','localhost']
 
 
 # Application definition
@@ -71,7 +71,7 @@ ROOT_URLCONF = 'binaryblogs.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['Templates'],
+        'DIRS': [os.path.join(BASE_DIR,'templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -92,7 +92,7 @@ WSGI_APPLICATION = 'binaryblogs.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'binaryblogs',
         'USER': env('USER'),
         'PASSWORD': env('PASSWORD'),
@@ -137,7 +137,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'static/')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'prod_static/')
 
 MEIDA_URL = 'images/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'static/images/')

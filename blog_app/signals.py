@@ -28,7 +28,7 @@ def sendEmail(sender,instance, created, *args, **kwargs):
             email_from = settings.EMAIL_HOST_USER  
             recipient_list = email_list
             context={'article': instance.context_to_dict()}
-            message = get_template("emails/newsletter.html").render(
+            message = get_template("blog_app/emails/newsletter.html").render(
                 context
             )
             msg = EmailMessage(subject, message, f"PROBO <{email_from}>", recipient_list, connection=connection)
