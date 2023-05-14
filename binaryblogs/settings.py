@@ -137,11 +137,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'static/')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'prod_static/')
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'staticfiles/')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 MEIDA_URL = 'images/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'static/images/')
+MEDIA_ROOT = os.path.join(BASE_DIR,'images/')
 
 # CKEDITOR_UPLOAD_PATH = 'static/images/blog_image'
 
