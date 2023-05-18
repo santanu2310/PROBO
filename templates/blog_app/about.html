@@ -1,0 +1,47 @@
+{% extends 'blog_app/base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'blog_app/css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="nav--banner--image">
+    <img src="{% static 'site_static_image/about-banner.jpg' %}" alt="">
+    <div class="banner--image--shade"></div>
+</div>
+<div class="about">
+    <h1>About Us</h1>
+    <p>
+        Welcome to our blog website, where diverse voices come together to create a rich tapestry of insights, ideas,
+        and inspiration. Our platform is home to a community of talented writers, each with their own unique
+        perspectives and expertise.
+        <br>
+        <br>
+        At PROBO, we believe in the power of collaboration and the strength that comes from sharing multiple
+        viewpoints. Our team of writers spans across various backgrounds, experiences, and interests, ensuring that our
+        content caters to a wide range of readers. From seasoned professionals to passionate hobbyists, our contributors
+        bring a wealth of knowledge and creativity to every article they write.
+        <br>
+        <br>
+        With an unwavering commitment to delivering high-quality content, our writers cover a broad spectrum of topics.
+        Whether you're seeking practical advice on personal finance, exploring the latest technological advancements,
+        immersing yourself in captivating storytelling, or unraveling the mysteries of the universe through scientific
+        discoveries, we've got you covered. Our diverse range of categories ensures that there's something for everyone.
+        <br>
+        <br>
+        Our blog is more than just a collection of articles; it's a vibrant community where ideas are exchanged,
+        connections are made, and conversations are sparked. We encourage readers to engage with our content, leave
+        comments, and share their own perspectives. We believe that through meaningful dialogue, we can foster a space
+        that encourages growth, learning, and understanding.
+        <br>
+        <br>
+        We're thrilled that you've chosen to join us on this journey. Whether you're here for knowledge, inspiration, or
+        simply a delightful read, we hope you find what you're looking for within the pages of our blog. We invite you
+        to explore, engage, and connect with our diverse community of writers as we collectively strive to create a
+        world of thought-provoking, enlightening, and entertaining content. Welcome to PROBO—where multiple voices
+        come together to create something extraordinary.
+    </p>
+</div>
+
+{% endblock %}

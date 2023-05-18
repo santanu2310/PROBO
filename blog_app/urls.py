@@ -7,4 +7,6 @@ urlpatterns = [
     path('article/<str:id>', views.blog, name='blog'),
     path('search', views.search, name='search'),
     path('getblog', views.getblog, name='getblog'),
+    path('about', views.AboutView.as_view(), name='about'),
+    path('contact', views.contact, name='contact'),
 ]

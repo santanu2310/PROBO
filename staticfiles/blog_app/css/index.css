@@ -137,7 +137,7 @@
     width: 100%;
     height: auto;
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     margin-top: 25px;
     flex-wrap: wrap;
 }
@@ -308,7 +308,7 @@
     font-family: 'Noto Sans', sans-serif;
     font-weight: 600;
     color: white;
-    background-color: rgb(37, 193, 112);
+    background-color: #212A3E;
     border: none;
     outline: none;
 }

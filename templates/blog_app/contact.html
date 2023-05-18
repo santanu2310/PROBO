@@ -1,0 +1,50 @@
+{% extends 'blog_app/base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'blog_app/css/contact.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="nav--banner--image">
+    <img src="{% static 'site_static_image/contact-banner.jpg' %}" alt="">
+    <div class="banner--image--shade"></div>
+</div>
+<div class="heading">
+    <h1>Contact Us</h1>
+    <p>Have a question about the our service? We're here help, contact us today.</p>
+</div>
+<div class="contact">
+    <div class="contact-form">
+        <form method="post">
+            {% csrf_token %}
+            <span>
+                <label for="user-name">NAME</label>
+                <input type="text" id="user-name" name="user_name" required>
+            </span>
+            <span>
+                <label for="user-email">EMAIL</label>
+                <input type="email" id="user-email" name="user_email" required>
+            </span>
+            <span class="textarea">
+                <label for="user-message">MESSAGE</label>
+                <textarea name="user_message" id="user-message" required></textarea>
+            </span>
+            <button type="submit">SEND</button>
+        </form>
+    </div>
+    <div class="contact-details">
+        <div class="our-location">
+            <h3>Headquarter</h3>
+            <p>416 Adarsh Nagar Oshiwara New Link Rd Jogeshwari, Mumbai 400102,Maharashtra India</p>
+        </div>
+        <div class="social">
+            <a href=""><img src="{% static 'site_static_image/fb.jpg' %}" alt=""></a>
+            <a href=""><img src="{% static 'site_static_image/insta.jpg' %}" alt=""></a>
+            <a href=""><img src="{% static 'site_static_image/youtube.jpg' %}" alt=""></a>
+            <a href=""><img src="{% static 'site_static_image/pinset.jpg' %}" alt=""></a>
+            <a href=""><img src="{% static 'site_static_image/twiter.jpg' %}" alt=""></a> 
+        </div>
+    </div>
+</div>
+{% endblock %}

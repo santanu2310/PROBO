@@ -6,6 +6,7 @@ from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
 import json
 from django.core.validators import validate_email
 from django.core import serializers
+from django.views.generic import TemplateView
 
 # Create your views here.
 
@@ -77,3 +78,10 @@ def getblog(request):
 
         
     return JsonResponse(data=serializers.serialize("json", blogs),safe=False)
+
+
+class AboutView(TemplateView):
+    template_name = "blog_app/about.html"
+
+def contact(request):
+    return render(request, 'blog_app/contact.html')
