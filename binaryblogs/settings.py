@@ -39,7 +39,7 @@ EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://43.204.238.126/','127.0.0.1','localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

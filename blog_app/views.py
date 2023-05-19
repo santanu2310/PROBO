@@ -60,7 +60,7 @@ def search(request):
         q = request.GET.get('q')
         vector = SearchVector('name','category__name','tags__name','short_desc')
         query = SearchQuery(q)
-        blogs=Blog.objects.annotate(rank=SearchRank(vector, query, cover_density = True)).filter(rank__gte=0.1).order_by('-rank').distinct()
+        blogs=Blog.objects.annotate(rank=SearchRank(vector, query, cover_density = True)).filter(rank__gte=0.05).order_by('-rank').distinct()
         
         paginator = Paginator(blogs,12)
         page_number = request.GET.get('page')
