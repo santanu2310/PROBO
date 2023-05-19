@@ -95,8 +95,8 @@ DATABASES = {
         'NAME': 'binaryblogs',
         'USER': env('USER'),
         'PASSWORD': env('PASSWORD'),
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
