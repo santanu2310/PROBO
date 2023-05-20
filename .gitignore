@@ -1,3 +1,4 @@
 /media
 /binaryblogs/.env
 /static
+*/__pycache__/*
