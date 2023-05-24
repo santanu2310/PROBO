@@ -18,7 +18,7 @@ const csrftoken = getCookie('csrftoken');
 const all_pop_article = document.getElementById('p_t_r').innerHTML
 
 function getBlogs(element,category,section) {
-    const url = 'http://127.0.0.1:8000/getblog'
+    const url = 'http://probo.codingsanta.xyz/getblog'
     fetch(url,{
         method: "POST",
         headers : {
