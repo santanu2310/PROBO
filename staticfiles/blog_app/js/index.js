@@ -112,7 +112,7 @@ function subscribe() {
 //
 
 function getBlogs(element,category,section) {
-    const url = 'http://probo.codingsanta.xyz/getblog'
+    const url = 'https://probo.codingsanta.xyz/getblog'
     fetch(url,{
         method: "POST",
         headers : {
